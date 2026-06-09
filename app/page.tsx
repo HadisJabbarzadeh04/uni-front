@@ -64,10 +64,10 @@
 //   );
 // }
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="bg-red-500 text-white text-6xl p-10">
+      Tailwind Test
     </div>
-  )
+  );
 }
