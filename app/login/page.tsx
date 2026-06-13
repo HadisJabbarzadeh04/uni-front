@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { login } from "@/services/authService";
 import { useRouter } from "next/navigation";
+import { setTokens } from "@/lib/auth";
+
 
 export default function LoginPage() {
   const [nationalCode, setNationalCode] = useState("");
@@ -22,8 +24,9 @@ export default function LoginPage() {
         password
       );
 
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("refreshToken", res.refreshToken);
+      // localStorage.setItem("accessToken", res.accessToken);
+      // localStorage.setItem("refreshToken", res.refreshToken);
+      setTokens(res.accessToken, res.refreshToken);
 
       router.push("/dashboard");
     } catch (err) {
