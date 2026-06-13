@@ -1,22 +1,29 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUserInfo } from "@/services/authService";
+import { getAccessToken } from "@/lib/auth";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUserState] = useState<any>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    async function loadUser() {
-      try {
-        const data = await getUserInfo();
-        setUser(data);
-      } catch (err) {
-        console.log("Failed to load user info");
+    async function load() {
+      const token = getAccessToken();
+
+      if (!token) {
+        router.push("/login");
+        return;
       }
+
+      const data = await getUserInfo();
+
+      setUserState(data);
     }
 
-    loadUser();
+    load();
   }, []);
 
   return (
@@ -26,7 +33,7 @@ export default function DashboardPage() {
       {user ? (
         <pre>{JSON.stringify(user, null, 2)}</pre>
       ) : (
-        <p>Loading user...</p>
+        <p>Loading...</p>
       )}
     </div>
   );
