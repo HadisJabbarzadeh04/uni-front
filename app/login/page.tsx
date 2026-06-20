@@ -24,8 +24,6 @@ export default function LoginPage() {
         password
       );
 
-      // localStorage.setItem("accessToken", res.accessToken);
-      // localStorage.setItem("refreshToken", res.refreshToken);
       setTokens(res.accessToken, res.refreshToken);
 
       router.push("/dashboard");
