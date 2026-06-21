@@ -13,25 +13,33 @@ export default function LoginPage() {
   const router = useRouter();
 
   async function handleLogin() {
-    try {
-      if (nationalCode.length !== 10) {
-        alert("National code must be 10 digits");
-        return;
-      }
+  try {
+    console.log("🔥 login started");
 
-      const res = await login(
-        Number(nationalCode),
-        password
-      );
+    const res = await login(
+      Number(nationalCode),
+      password
+    );
 
-      setTokens(res.accessToken, res.refreshToken);
+    console.log("✅ login response:", res);
 
-      router.push("/dashboard");
-    } catch (err) {
-      console.log(err);
-      console.log("LOGIN FAILED");
-    }
+    localStorage.setItem(
+      "accessToken",
+      res.accessToken
+    );
+
+    localStorage.setItem(
+      "refreshToken",
+      res.refreshToken
+    );
+
+    console.log("🚀 redirecting...");
+
+    router.push("/");
+  } catch (err) {
+    console.error("❌ LOGIN FAILED:", err);
   }
+}
 
   return (
     <div>
