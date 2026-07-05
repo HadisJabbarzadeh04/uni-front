@@ -1,21 +1,13 @@
 import { apiClient } from "@/lib/apiClient";
 
-const BASE =
-  "/api/teacher/departmentManager";
+const BASE = "/api/teacher/departmentManager";
 
-// ======================
-// GET TEACHER LIST
-// ======================
 
 export async function getTeacherList() {
   return await apiClient(
     `${BASE}/getTeacherList`
   );
 }
-
-// ======================
-// GET TEACHER DETAIL
-// ======================
 
 export async function getTeacherDetail(
   id: string
@@ -25,9 +17,6 @@ export async function getTeacherDetail(
   );
 }
 
-// ======================
-// CREATE TEACHER
-// ======================
 
 export async function createTeacher(
   data: any
@@ -41,10 +30,6 @@ export async function createTeacher(
   );
 }
 
-// ======================
-// EDIT TEACHER
-// ======================
-
 export async function editTeacher(
   data: any
 ) {
@@ -56,10 +41,6 @@ export async function editTeacher(
     }
   );
 }
-
-// ======================
-// DELETE TEACHER
-// ======================
 
 export async function deleteTeacher(
   id: string
