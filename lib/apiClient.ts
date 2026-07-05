@@ -3,7 +3,7 @@ import {getAccessToken,logout,setTokens,} from "./auth";
 import { refreshAccessToken } from "@/services/authService";
 
 const BASE_URL =
-  "https://university-system-5wbo.onrender.com/api";
+  "https://university-system-5wbo.onrender.com";
 
 export async function apiClient(endpoint: string, options: RequestInit = {}) {
   const token = getAccessToken();
