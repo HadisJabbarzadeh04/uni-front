@@ -12,7 +12,7 @@ export async function login(
   console.log("📡 sending login request...");
 
   const result = await apiClient(
-    "/auth/web/login",
+    "/auth/login",
     {
       method: "POST",
       body: JSON.stringify({
