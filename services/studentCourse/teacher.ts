@@ -2,22 +2,19 @@ import { apiClient } from "@/lib/apiClient";
 
 const BASE = "/api/studentCourse/teacher";
 
-
-export async function getStudentCourseList() {
+export async function getTeacherStudentCourseList() {
   return await apiClient(
     `${BASE}/getStudentCourseList`
   );
 }
 
-
-export async function getStudentCourseDetail(
+export async function getTeacherStudentCourseDetail(
   id: string
 ) {
   return await apiClient(
     `${BASE}/getStudentCourseDetail/${id}`
   );
 }
-
 
 export async function changeStudentCourseStatus(
   data: any
