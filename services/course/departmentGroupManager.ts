@@ -1,0 +1,1 @@
+const BASE = "/api/course/departmentGroupManager";
