@@ -1,107 +1,27 @@
-import {getAccessToken,logout,setTokens,} from "./auth";
+const BASE_URL = "https://university-system-5wbo.onrender.com/api";
 
-import { refreshAccessToken } from "@/services/authService";
+function getToken() {
+  return localStorage.getItem("accessToken");
+}
 
-const BASE_URL =
-  "https://university-system-5wbo.onrender.com";
-
-export async function apiClient(endpoint: string, options: RequestInit = {}) {
-  const token = getAccessToken();
-
-  console.log(
-  "🌍 requesting:",
-  `${BASE_URL}${endpoint}`
-);
-
-console.log("🔥 endpoint received:", endpoint);
-console.log("🔥 base url:", BASE_URL);
-
+export async function apiClient<T>(
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
   const res = await fetch(`${BASE_URL}${endpoint}`, {
-      ...options,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token
-          ? `Bearer ${token}`
-          : "",
-        ...(options.headers || {}),
-      },
-    }
-  );
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+      ...options.headers,
+    },
+  });
 
-  const text = await res.text();
+  const data = await res.json();
 
-  let data;
-
-  try {
-    data = JSON.parse(text);
-  } catch {
-    console.error(
-      "❌ Backend did not return JSON:",
-      text
-    );
-
-    throw new Error(
-      "Invalid server response (not JSON)"
-    );
+  if (!res.ok || !data.ok) {
+    throw new Error(data.message || "API Error");
   }
 
-  // token expired
-  if (res.status === 401) {
-    try {
-      const newTokens =
-        await refreshAccessToken();
-
-      setTokens(
-        newTokens.accessToken,
-        newTokens.refreshToken
-      );
-
-      // retry request
-      const retry = await fetch(
-        `${BASE_URL}${endpoint}`,
-        {
-          ...options,
-          headers: {
-            "Content-Type":
-              "application/json",
-
-            Authorization: `Bearer ${newTokens.accessToken}`,
-
-            ...(options.headers || {}),
-          },
-        }
-      );
-
-      const retryText =
-        await retry.text();
-
-      try {
-        return JSON.parse(retryText);
-      } catch {
-        console.error(
-          "❌ Retry response was not JSON:",
-          retryText
-        );
-
-        throw new Error(
-          "Invalid retry response"
-        );
-      }
-    } catch {
-      logout();
-
-      if (
-        typeof window !== "undefined"
-      ) {
-        window.location.href =
-          "/login";
-      }
-
-      throw new Error(
-        "Session expired"
-      );
-    }
-  }
-
-  return data;
+  return data.data as T;
 }
