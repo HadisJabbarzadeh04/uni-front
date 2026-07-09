@@ -52,23 +52,3 @@ export async function refreshAccessToken() {
 
   return result.data;
 }
-
-export async function getStudentList() {
-  return {
-    data: [
-      {
-        id: 1,
-        firstName: "Ali",
-        lastName: "Ahmadi",
-        studentNumber: "401123456",
-      },
-
-      {
-        id: 2,
-        firstName: "Sara",
-        lastName: "Mohammadi",
-        studentNumber: "401654321",
-      },
-    ],
-  };
-}
