@@ -1,3 +1,5 @@
+"use client";
+
 import {
 useState
 }
@@ -12,10 +14,7 @@ import Button
 from "../common/Button";
 
 
-import {
-createTeacher
-}
-from "../../api/teacherApi";
+import { createTeacher } from "@/services/teacher/departmentManager";
 
 
 export default function TeacherForm({
