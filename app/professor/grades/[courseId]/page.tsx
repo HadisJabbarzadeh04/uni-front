@@ -13,7 +13,7 @@ import Button from "@/components/common/Button";
 import Loading from "@/components/common/Loading";
 
 import {
-  getStudentCourseList,
+  getTeacherStudentCourseList,
   editScore,
 } from "@/services/studentCourse/teacher";
 
@@ -38,7 +38,7 @@ export default function GradesPage() {
     try {
 
       const data =
-        await getStudentCourseList();
+        await getTeacherStudentCourseList();
 
 
       // Depending on backend response,
