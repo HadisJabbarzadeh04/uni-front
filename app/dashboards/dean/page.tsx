@@ -122,13 +122,10 @@ export default function DeanDashboardPage() {
         {stats.map((item, i) => (
 
           <StatCard
-
             key={i}
-
             title={item.title}
-
             value={item.value}
-
+            icon={undefined}
           />
 
         ))}
