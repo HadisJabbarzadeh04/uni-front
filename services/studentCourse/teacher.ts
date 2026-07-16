@@ -2,7 +2,7 @@ import { apiClient } from "@/lib/apiClient";
 
 const BASE = "/api/studentCourse/teacher";
 
-export async function getTeacherStudentCourseList() {
+export async function getTeacherStudentCourseList() :  Promise<any[]>{
   return await apiClient(
     `${BASE}/getStudentCourseList`
   );

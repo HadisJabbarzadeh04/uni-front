@@ -40,19 +40,11 @@ export default function GradesPage() {
       const data =
         await getTeacherStudentCourseList();
 
-
-      // Depending on backend response,
-      // we may filter here:
-      //
-      // data.filter(
-      //   x => x.courseId === courseId
-      // )
-
       setStudents(data);
 
 
     } catch (err) {
-      console.error(err);
+      console.error("Failed to load students:", err);
 
     } finally {
       setLoading(false);
