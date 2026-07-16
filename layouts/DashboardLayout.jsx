@@ -1,128 +1,148 @@
+"use client";
+
 import {
-useState
+  useState,
+} from "react";
+
+
+import Sidebar from "../components/layout/Sidebar";
+
+import Header from "../components/layout/Header";
+
+import Breadcrumb from "../components/layout/Breadcrumb";
+
+
+interface MenuItem {
+  label: string;
+  href: string;
 }
-from "react";
 
 
-import Sidebar
-from "../components/layout/Sidebar";
+interface DashboardLayoutProps {
 
+  children: React.ReactNode;
 
-import Header
-from "../components/layout/Header";
+  title: string;
 
+  menuItems?: MenuItem[];
 
-import Breadcrumb
-from "../components/layout/Breadcrumb";
+  breadcrumb?: string[];
+
+}
 
 
 
 export default function DashboardLayout({
 
-children,
+  children,
 
-title,
+  title,
 
-menuItems=[],
+  menuItems = [],
 
-breadcrumb=[]
+  breadcrumb = [],
 
-}){
-
-
-
-const [collapsed,setCollapsed]=useState(false);
+}: DashboardLayoutProps) {
 
 
 
-
-return (
-
-<div
-
-className="
-flex
-min-h-screen
-bg-slate-100
-dark:bg-slate-950
-"
-
->
+  const [collapsed, setCollapsed] =
+    useState(false);
 
 
 
-{/* Sidebar */}
+  return (
 
-<Sidebar
+    <div
 
-collapsed={collapsed}
+      className="
+        flex
+        min-h-screen
+        bg-slate-100
+        dark:bg-slate-950
+      "
 
-menuItems={menuItems}
-
-/>
-
-
-
-
-
-{/* Main */}
-
-<div
-className="
-flex-1
-flex
-flex-col
-"
-
->
+    >
 
 
 
-{/* Header */}
+      {/* Sidebar */}
 
-<Header
+      <Sidebar
 
-title={title}
+        collapsed={collapsed}
 
-onToggleSidebar={()=>
-setCollapsed(!collapsed)
-}
+        menuItems={menuItems}
 
-/>
+      />
 
 
 
 
 
-{/* Content */}
+      {/* Main */}
 
-<main
-className="
-p-6
-"
->
+      <div
 
+        className="
+          flex-1
+          flex
+          flex-col
+        "
 
-
-<Breadcrumb items={breadcrumb}/>
-
-
-
-<div>
-
-{children}
-
-</div>
+      >
 
 
-</main>
+
+        {/* Header */}
+
+        <Header
+
+          title={title}
+
+          onToggleSidebar={() =>
+            setCollapsed(!collapsed)
+          }
+
+        />
 
 
-</div>
 
 
-</div>
 
-)
+        {/* Content */}
+
+        <main
+
+          className="
+            p-6
+          "
+
+        >
+
+          <Breadcrumb
+
+            items={breadcrumb}
+
+          />
+
+
+
+          <div>
+
+            {children}
+
+          </div>
+
+
+        </main>
+
+
+      </div>
+
+
+    </div>
+
+  );
 
 }
