@@ -1,4 +1,4 @@
-const BASE_URL = "https://university-system-5wbo.onrender.com/api";
+const BASE_URL = "https://university-system-5wbo.onrender.com";
 
 function getToken() {
   return localStorage.getItem("accessToken");
