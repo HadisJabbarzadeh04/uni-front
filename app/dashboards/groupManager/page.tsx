@@ -31,11 +31,23 @@ export default function GroupManagerDashboardPage() {
     useState<DashboardData | null>(null);
 
   const menu = [
-    "دروس",
-    "دوره‌ها",
-    "دانشجویان",
-    "ثبت نام",
-  ];
+  {
+    label: "دروس",
+    href: "/groupManager/lessons",
+  },
+  {
+    label: "دوره‌ها",
+    href: "/groupManager/courses",
+  },
+  {
+    label: "دانشجویان",
+    href: "/groupManager/students",
+  },
+  {
+    label: "ثبت نام",
+    href: "/groupManager/registerStudent",
+  },
+];
 
   useEffect(() => {
     async function load() {

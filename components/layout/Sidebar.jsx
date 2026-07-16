@@ -1,6 +1,7 @@
-import {
-useState
-} from "react";
+"use client";
+
+import {useState} from "react";
+import Link from "next/link";
 
 
 import {
@@ -9,6 +10,7 @@ ChevronLeft,
 LayoutDashboard
 }
 from "lucide-react";
+
 
 
 export default function Sidebar({
@@ -79,38 +81,27 @@ space-y-3
 "
 >
 
-{
-menuItems.map(
-(item,index)=>(
+{menuItems.map((item, index) => (
+  <Link
+    key={index}
+    href={item.href}
+  >
+    <div
+      className="
+        p-3
+        rounded-xl
+        hover:bg-blue-700
+        cursor-pointer
+        flex
+        gap-3
+      "
+    >
+      <LayoutDashboard />
 
-<li
-
-key={index}
-
-className="
-p-3
-rounded-xl
-hover:bg-blue-700
-cursor-pointer
-flex
-gap-3
-"
-
-
->
-
-<LayoutDashboard/>
-
-{
-!collapse &&
-item
-}
-
-</li>
-
-)
-)
-}
+      {!collapse && item.label}
+    </div>
+  </Link>
+))}
 
 
 </ul>

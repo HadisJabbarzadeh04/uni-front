@@ -61,9 +61,18 @@ export default function ProfessorDashboardPage() {
     <DashboardLayout
       title="استاد"
       menuItems={[
-        "دوره‌ها",
-        "نمرات",
-        "اعتراضات",
+        {
+          label: "دوره‌ها",
+          href: "/professor/myCourses",
+        },
+        {
+          label: "نمرات",
+          href: "/professor/grades/1", // temporary
+        },
+        {
+          label: "اعتراضات",
+          href: "/professor/objections",
+        },
       ]}
       breadcrumb={[
         "داشبورد",

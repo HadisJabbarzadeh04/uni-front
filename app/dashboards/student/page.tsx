@@ -61,14 +61,22 @@ export default function StudentDashboardPage() {
     <DashboardLayout
       title="دانشجو"
       menuItems={[
-        "انتخاب واحد",
-        "دروس من",
-        "اعتراض نمره",
-        "درخواست حذف",
-      ]}
-      breadcrumb={[
-        "داشبورد",
-        "دانشجو",
+        {
+          label: "انتخاب واحد",
+          href: "/student/unitSelection",
+        },
+        {
+          label: "دروس من",
+          href: "/student/myLessons",
+        },
+        {
+          label: "اعتراض نمره",
+          href: "/student/objections",
+        },
+        {
+          label: "درخواست حذف",
+          href: "/student/deleteRequest",
+        },
       ]}
     >
       <div
