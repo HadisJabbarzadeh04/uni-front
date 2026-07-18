@@ -47,15 +47,25 @@ export default function FinalGradesPage() {
         bg-white
         rounded-xl
         p-8
+        text-indigo-700
       "
     >
 
-      <h2>
+      <h2
+        className="
+          text-indigo-700
+        "
+      >
         ثبت نهایی نمرات
       </h2>
 
 
-      <p className="my-5">
+      <p
+        className="
+          my-5
+          text-indigo-600
+        "
+      >
         بعد از تایید امکان تغییر وجود ندارد.
       </p>
 

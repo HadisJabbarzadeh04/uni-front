@@ -75,6 +75,7 @@ export default function EditCoursePage() {
         bg-white
         p-6
         rounded-xl
+        text-indigo-700
       "
     >
 
@@ -84,6 +85,7 @@ export default function EditCoursePage() {
           p-3
           rounded-xl
           w-full
+          text-indigo-700
         "
         value={
           form.status || ""

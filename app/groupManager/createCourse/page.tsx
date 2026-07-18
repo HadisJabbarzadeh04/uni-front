@@ -51,6 +51,7 @@ export default function CreateCoursePage() {
         p-6
         rounded-xl
         space-y-4
+        text-indigo-700
       "
     >
 
@@ -63,6 +64,8 @@ export default function CreateCoursePage() {
           p-3
           rounded-xl
           w-full
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 
@@ -76,6 +79,8 @@ export default function CreateCoursePage() {
           p-3
           rounded-xl
           w-full
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 
@@ -89,6 +94,8 @@ export default function CreateCoursePage() {
           p-3
           rounded-xl
           w-full
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 

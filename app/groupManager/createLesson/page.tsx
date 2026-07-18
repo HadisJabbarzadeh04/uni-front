@@ -53,6 +53,7 @@ export default function CreateLessonPage() {
         p-6
         rounded-2xl
         space-y-4
+        text-indigo-700
       "
     >
 

@@ -76,6 +76,7 @@ export default function EditLessonPage() {
         bg-white
         p-6
         rounded-2xl
+        text-indigo-700
       "
     >
 
@@ -85,6 +86,7 @@ export default function EditLessonPage() {
           p-3
           rounded-xl
           w-full
+          text-indigo-700
         "
         value={
           form.title || ""

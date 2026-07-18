@@ -50,10 +50,15 @@ export default function DeleteRequestPage() {
         bg-white
         p-6
         rounded-xl
+        text-indigo-700
       "
     >
 
-      <h2>
+      <h2
+        className="
+          text-indigo-700
+        "
+      >
         حذف دوره
       </h2>
 
@@ -72,6 +77,8 @@ export default function DeleteRequestPage() {
           rounded-xl
           my-5
           w-full
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 

@@ -52,6 +52,7 @@ export default function RegisterStudentPage() {
         bg-white
         p-6
         rounded-xl
+        text-indigo-700
       "
     >
 
@@ -63,6 +64,8 @@ export default function RegisterStudentPage() {
           border
           p-3
           rounded-xl
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 
@@ -75,6 +78,8 @@ export default function RegisterStudentPage() {
           border
           p-3
           rounded-xl
+          text-indigo-700
+          placeholder:text-indigo-400
         "
       />
 
