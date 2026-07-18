@@ -12,16 +12,13 @@ import {
   changeStudentStatus,
 } from "@/services/student/departmentGroupManager";
 
-
 export default function ChangeStudentStatusPage() {
   const params = useParams();
 
   const id = params.id as string;
 
-
   const [status, setStatus] =
     useState("");
-
 
   async function save() {
     try {
@@ -37,13 +34,13 @@ export default function ChangeStudentStatusPage() {
     }
   }
 
-
   return (
     <div
       className="
         bg-white
         p-6
         rounded-xl
+        text-indigo-700
       "
     >
       <select
@@ -51,6 +48,7 @@ export default function ChangeStudentStatusPage() {
           border
           p-3
           rounded-xl
+          text-indigo-700
         "
         value={status}
         onChange={(e) =>
@@ -73,7 +71,6 @@ export default function ChangeStudentStatusPage() {
           مشروط
         </option>
       </select>
-
 
       <Button onClick={save}>
         ثبت

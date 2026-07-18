@@ -63,6 +63,8 @@ export default function AssignManagerPage() {
         bg-white
         p-6
         rounded-2xl
+        shadow-lg
+        text-indigo-700
       "
     >
       <select
@@ -70,6 +72,7 @@ export default function AssignManagerPage() {
           border
           p-3
           rounded-xl
+          text-indigo-700
         "
         value={selected}
         onChange={(e) =>
@@ -97,6 +100,8 @@ export default function AssignManagerPage() {
           rounded-xl
           block
           my-5
+          text-indigo-700
+          placeholder:text-indigo-400
         "
         placeholder="شناسه استاد"
         value={teacher}

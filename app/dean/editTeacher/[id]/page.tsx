@@ -37,7 +37,6 @@ export default function EditTeacherPage() {
       group: "",
     });
 
-
   useEffect(() => {
     async function load() {
       try {
@@ -55,7 +54,6 @@ export default function EditTeacherPage() {
     }
   }, [id]);
 
-
   function change(
     e: React.ChangeEvent<HTMLInputElement>
   ) {
@@ -65,7 +63,6 @@ export default function EditTeacherPage() {
         e.target.value,
     });
   }
-
 
   async function save() {
     try {
@@ -81,13 +78,13 @@ export default function EditTeacherPage() {
     }
   }
 
-
   return (
     <div
       className="
         bg-white
         p-6
         rounded-2xl
+        text-indigo-700
       "
     >
       <FormInput

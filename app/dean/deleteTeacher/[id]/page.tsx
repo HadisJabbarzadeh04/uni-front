@@ -28,9 +28,14 @@ export default function DeleteTeacherPage() {
         bg-white
         p-8
         rounded-2xl
+        text-indigo-700
       "
     >
-      <h2>
+      <h2
+        className="
+          text-indigo-700
+        "
+      >
         حذف استاد؟
       </h2>
 
